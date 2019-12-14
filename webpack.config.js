@@ -1,6 +1,9 @@
 const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
+const TerserPlugin = require('terser-webpack-plugin');
+
 var MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 var path = require('path')
@@ -64,23 +67,16 @@ module.exports = {
             filename: "assets/css/style.css"
         })
     ],
-    optimization: {}
+    optimization: {
+    }
 }
 
 if (mode === 'production') {
     module.exports.devtool = '#source-map'
 
+    module.exports.optimization.minimize = true;
     module.exports.optimization.minimizer = (module.exports.optimization.minimizer || []).concat([
-        new UglifyJsPlugin({
-            cache: true,
-            parallel: true,
-            uglifyOptions: {
-                compress: false,
-                ecma: 6,
-                mangle: true
-            },
-            sourceMap: true
-        })
+        new TerserPlugin()
     ]);
 
 
