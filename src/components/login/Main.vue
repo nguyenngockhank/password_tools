@@ -2,7 +2,8 @@
   <div class="full-width">
     <h1 class="center-content">Login Yeha!</h1>
     <div>
-      <button @click="handleClick()">Go</button>
+
+      <el-button type="primary" icon="el-icon-edit"  @click="handleClick()">Login</el-button>
     </div>
   </div>
 </template>

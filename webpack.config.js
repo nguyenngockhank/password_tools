@@ -33,6 +33,17 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/,
                 use: styleLoaders
             },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?[a-z0-9]+)?$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'assets/fonts/', // where the fonts will go
+                        publicPath: mode !== 'production' ? 'assets/fonts' : '../fonts/' // override the default path
+                    }
+                }]
+            },
         ]
     },
     resolve: {
@@ -49,7 +60,8 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         new MiniCssExtractPlugin({
-            filename: 'style.css'
+            // filename: 'style.css'
+            filename: "assets/css/style.css"
         })
     ],
     optimization: {}

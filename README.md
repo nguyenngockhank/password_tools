@@ -141,3 +141,26 @@ export default {
 window.assetUrl  = 'http://localhost/vue-starter/dist/';
 </script>
 ```
+
+## Firebase Setup
+
+```json
+{
+  "rules": {
+    "users": {
+      "$user_id": {
+        // grants write access to the owner of this user account
+        // whose uid must exactly match the key ($user_id)
+        ".write": "$user_id === auth.uid"
+      }
+    }
+  }
+}
+```
+
+### Database Realtime
+
+https://firebase.google.com/docs/database/web/start
+
+
+{document=**} 

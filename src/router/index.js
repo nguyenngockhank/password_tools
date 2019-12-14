@@ -4,29 +4,23 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 import Login from '../components/login/Main';
-
-import HelloWorld from '../components/HelloWorld'
-const SecondWorld = () => import(/* webpackChunkName: "secondworld" */ '../components/SecondWorld')
-
+import Dashboard from '../components/dashboard/Main';
 import { AuthService, EventBus } from '@/services';
+
+
 AuthService.init();
 
 var router = new Router({
     routes: [
         {
             path: '/',
-            name: 'HelloWorld',
-            component: HelloWorld
+            name: 'Dashboard',
+            component: Dashboard
         },
         {
             path: '/login',
             name: 'Login',
             component: Login
-        },
-        {
-            path: '/secondworld',
-            name: 'SecondWorld',
-            component: SecondWorld
         },
     ]
 })
@@ -34,12 +28,16 @@ var router = new Router({
 // set up events
 import { USER_LOGGED_IN , USER_LOGGED_OUT} from '@/constants/events';
 EventBus.$on(USER_LOGGED_IN, (user) => {
-    router.push({ path: '/' });
+    // save to browser session
+    if(router.history.current.name !== 'Login') {
+        return;
+    }
+
+    router.push({ name: 'Dashboard' });
 });
 
 EventBus.$on(USER_LOGGED_OUT, () => {
-
-    if(router.history.current.name == 'Login') {
+    if(router.history.current.name === 'Login') {
         return;
     }
     router.push({ name: 'Login' });

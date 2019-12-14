@@ -1,5 +1,9 @@
-import AuthService from './auth';
-import EventBus from './eventbus';
+import AuthService from './auth'
+import EventBus from './eventbus'
 
-export { AuthService, EventBus };
+
+import CategoryData  from './data/category';
+
+
+export { AuthService, EventBus, CategoryData };
 

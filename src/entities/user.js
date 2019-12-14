@@ -6,6 +6,10 @@ class User {
         this.token = token;
         this.photoURL = photoURL;
     }
+
+    getName() {
+        return this.name;
+    }
 }
 
 export default User;
