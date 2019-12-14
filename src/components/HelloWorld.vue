@@ -3,6 +3,8 @@
     <h1 class=" center-content">Hello World!</h1>
     <div>
        <button @click="handleClick()">Increase</button> {{count}}
+
+       <button @click="handleLogout()">Log out</button>
     </div>
     <a href="#/secondworld">Second World</a>
   </div>
@@ -11,6 +13,7 @@
 <script>
 import { mapActions } from 'vuex'
 import { INCREASE_COUNT } from '../store/constants'
+import { AuthService } from '@/services'
 
 export default {
   computed: {
@@ -22,6 +25,9 @@ export default {
     ...mapActions([ INCREASE_COUNT ]),
     handleClick() {
       this[INCREASE_COUNT](2);
+    },
+    handleLogout(){
+      AuthService.requestLogout();
     }
   }
 }
