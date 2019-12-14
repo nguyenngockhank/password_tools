@@ -12,7 +12,18 @@
         "libraryName": "element-ui",
         "styleLibraryName": "theme-chalk"
       }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./src"
+        ],
+        "alias": {
+          // thêm alias tại đây 
+          "@": "./src"
+        }
+      }
     ]
-   
   ]
 }
