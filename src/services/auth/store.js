@@ -7,6 +7,10 @@ class UserStore {
         return this.user != null;
     }
 
+    getUser() {
+        return this.user;
+    }
+
     setUser(user) {
         this.user = user;
     }
