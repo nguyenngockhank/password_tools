@@ -8,10 +8,14 @@ describe('Entities', function () {
 
     describe('# User Entity', function () {
 
-        it('Check method `getName` after initilization ', function () {
+        it('Check method `getName` & `getId` after initilization ', function () {
+            
             const NAME = 'khanh';
-            var user = new User(null, NAME, null, null);
+            const USER_ID = 1;
+            var user = new User(USER_ID, null, NAME, null, null);
+
             assert.strictEqual(user.getName(), NAME);
+            assert.strictEqual(user.getId(), USER_ID);
         });
     });
 

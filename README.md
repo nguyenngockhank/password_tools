@@ -147,11 +147,13 @@ window.assetUrl  = 'http://localhost/vue-starter/dist/';
 ```json
 {
   "rules": {
+    "categories": {
+      ".read": true,
+    },
     "users": {
-      "$user_id": {
-        // grants write access to the owner of this user account
-        // whose uid must exactly match the key ($user_id)
-        ".write": "$user_id === auth.uid"
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid"
       }
     }
   }

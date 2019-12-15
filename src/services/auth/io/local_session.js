@@ -16,8 +16,8 @@ class LocalSession {
     }
 
     saveSession(firebaseResponse) {
-        var { email, displayName, photoURL, refreshToken } = firebaseResponse;
-        this.store.saveValue({  email, displayName, photoURL, refreshToken });
+        var { uid, email, displayName, photoURL, refreshToken } = firebaseResponse;
+        this.store.saveValue({  uid, email, displayName, photoURL, refreshToken });
     }
 
     removeSession() {

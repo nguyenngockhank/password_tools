@@ -36,7 +36,7 @@ import NavBar from './Navbar';
 import SideBar from './Sidebar';
 import AccountForm from './AccountForm';
 
-import { AuthService } from '@/services'
+import { AuthService, AccountData } from '@/services'
 
 export default {
     components: {
@@ -49,22 +49,21 @@ export default {
             address: 'No. 189, Grove St, Los Angeles'
         };
         return {
-            account: {
-                user: '',
-                pass: '',
-                login_url: '',
-                note: '',
-            },
             dialogVisible: false,
             tableData: Array(20).fill(item)
         }
     },
     methods: {
-       handleFormSubmit(accountInfo) {
-           console.log('acc info', accountInfo)
+        async handleFormSubmit(accountInfo) {
+
+            console.log('accountInfo', accountInfo)
+
+            var account = await AccountData.create(accountInfo)
+
+           console.log('after create info', account)
 
            this.dialogVisible = false;
-       }
+        }
     }
 }
 </script>
