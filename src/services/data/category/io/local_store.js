@@ -7,13 +7,6 @@ class LocalStore extends BrowserStorage {
         super('localStorage', KEY);
     }
 
-    getValue() {
-        var val = super.getValue();
-
-        console.log('LOCAL STORGE', val)
-
-    }
-
 }
 
 export default new LocalStore;

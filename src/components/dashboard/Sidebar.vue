@@ -1,6 +1,6 @@
 <template>
 <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-    <el-menu class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" >
+    <el-menu class="el-menu-vertical-demo">
         <el-menu-item v-for="item in items" :key="item.slug" :index="item.index">
             <i :class="item.icon ? item.icon : 'el-icon-menu'"></i>
             <span slot="title">{{item.name}}</span>
@@ -37,8 +37,6 @@ export default {
                 slug: cat.getId(),
             }
         })
-
-        console.log(' >>> result categories ', result, this.items);
     }
 }
 </script>
