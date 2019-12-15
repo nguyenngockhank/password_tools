@@ -24,7 +24,7 @@ describe('Authenication', function () {
 
     describe('# User Transformer', function () {
 
-        it('should `user` is an instance of User Entity', function () {
+        it('The result must be an instance of User Entity', function () {
             var request = { 
                 email: 'test@mail.com', 
                 displayName: 'khank ne', 

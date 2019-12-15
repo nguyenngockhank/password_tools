@@ -1,14 +1,14 @@
 class User {
 
     constructor(email, name, photoURL, token) {
-        this.name = name;
-        this.email = email;
-        this.token = token;
-        this.photoURL = photoURL;
+        this._name = name;
+        this._email = email;
+        this._token = token;
+        this._photoURL = photoURL;
     }
 
     getName() {
-        return this.name;
+        return this._name;
     }
 }
 

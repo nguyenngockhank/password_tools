@@ -1,21 +1,21 @@
 class Category {
 
     constructor(id, name, icon) {
-        this.id = id;
-        this.name = name;
-        this.icon = icon;
+        this._id = id;
+        this._name = name;
+        this._icon = icon;
     }
 
     getId() {
-        return this.id;
+        return this._id;
     }
 
     getName() {
-        return this.name;
+        return this._name;
     }
 
     getIcon() {
-        return this.icon;
+        return this._icon;
     }
 }
 

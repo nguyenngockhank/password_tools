@@ -1,5 +1,5 @@
-import loginUsecase from '@/use-cases/user/login'
-import logoutUsecase from '@/use-cases/user/logout'
+import loginUsecase from './use-cases/user/login'
+import logoutUsecase from './use-cases/user/logout'
 
 import userStore from './store'
 import LocalSession from './local_session'
