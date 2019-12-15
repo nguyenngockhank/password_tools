@@ -1,8 +1,8 @@
 import loginUsecase from './use-cases/user/login'
 import logoutUsecase from './use-cases/user/logout'
 
-import userStore from './store'
-import LocalSession from './local_session'
+import userStore from './io/store'
+import LocalSession from './io/local_session'
 import userTransformer from './user_transformer';
 import { firebase, authProvider } from '@/io/firebase'
 

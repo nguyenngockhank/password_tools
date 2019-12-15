@@ -1,6 +1,6 @@
 var assert = require('assert');
 
-import userStore from './store';
+import userStore from './io/store';
 import userTransformer from './user_transformer';
 
 import User from '@/entities/user';
