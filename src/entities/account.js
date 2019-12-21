@@ -1,7 +1,8 @@
 class Account {
 
-    constructor(id, username, password, loginUrl, note) {
+    constructor(id, catId, username, password, loginUrl, note) {
         this._id = id;
+        this._catId = catId,
         this._username = username;
         this._password = password;
         this._loginUrl = loginUrl;
@@ -15,6 +16,10 @@ class Account {
 
     getId() {
         return this._id;
+    }
+
+    getCategoryId() {
+        return this._catId;
     }
 
     getUsername() {

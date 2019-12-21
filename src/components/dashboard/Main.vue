@@ -13,18 +13,10 @@
             </el-header><!-- end header section -->
 
             <el-main>
-                <el-table :data="tableData">
-                    <el-table-column prop="date" label="Date" width="140">
-                    </el-table-column>
-                    <el-table-column prop="name" label="Name" width="120">
-                    </el-table-column>
-                    <el-table-column prop="address" label="Address">
-                    </el-table-column>
-                </el-table>
+                <AccountTable />
             </el-main><!-- end main section -->
         </el-container><!-- end content container  -->
     </el-container><!-- end page container  -->
-
 
     <AccountForm :dialog-visible.sync="dialogVisible" @submit="handleFormSubmit" />
 
@@ -36,33 +28,23 @@ import NavBar from './Navbar';
 import SideBar from './Sidebar';
 import AccountForm from './AccountForm';
 
+import AccountTable from './AccountTable';
+
 import { AuthService, AccountData } from '@/services'
 
 export default {
     components: {
-        NavBar, SideBar, AccountForm
+        NavBar, SideBar, AccountForm, AccountTable
     },
     data() {
-        const item = {
-            date: '2016-05-02',
-            name: 'Tom',
-            address: 'No. 189, Grove St, Los Angeles'
-        };
         return {
             dialogVisible: false,
-            tableData: Array(20).fill(item)
         }
     },
     methods: {
         async handleFormSubmit(accountInfo) {
-
-            console.log('accountInfo', accountInfo)
-
             var account = await AccountData.create(accountInfo)
-
-           console.log('after create info', account)
-
-           this.dialogVisible = false;
+            this.dialogVisible = false;
         }
     }
 }

@@ -3,6 +3,9 @@ import Category from '@/entities/category'
 
 class CategoryRepo {
 
+    /**
+     * Grab Category list of the app
+     */
     async getAll() {
         let snapshot = await database.ref('/categories').once('value'); 
         let val = snapshot.val();

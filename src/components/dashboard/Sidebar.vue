@@ -7,36 +7,26 @@
         </el-menu-item>
 
 
-        <el-menu-item index="41">
+        <!-- <el-menu-item index="41">
             <i class="el-icon-setting"></i>
             <span slot="title">Navigator Four</span>
-        </el-menu-item>
+        </el-menu-item> -->
     </el-menu>
 </el-aside>
 </template>
 
 <script>
-import { CategoryData } from '@/services';
-
+import categoryDataMixin from './categoryDataMixin';
 
 export default {
+    mixins: [ categoryDataMixin ],
     data() {
         return {
             items: [],
         }
     },
     async created() {
-        var result = await CategoryData.getAll();
-
-        this.items = result.map( (cat, index) => {
-            index++;
-            return {
-                index: index + '', //  to string
-                name: cat.getName(),
-                icon: cat.getIcon(),
-                slug: cat.getId(),
-            }
-        })
+        this.items = await this.getCategoryList();
     }
 }
 </script>

@@ -26,6 +26,7 @@ describe('Authenication', function () {
 
         it('The result must be an instance of User Entity', function () {
             var request = { 
+                uid: 'test',
                 email: 'test@mail.com', 
                 displayName: 'khank ne', 
                 photoURL: 'aaaa', 
