@@ -2,6 +2,8 @@ import FireAccountRepo from '@/io/firebase-repo/account_repo'
 import makeUuid from './make_uuid'
 import Account from '@/entities/account'
 
+import { encode } from '@/helpers';
+
 import { arrRawToEntities } from './transformer'
 
 import { AuthService } from '@/services'
@@ -15,11 +17,13 @@ class AccountData {
     async create(data) {
         // pass validation
         var { cat_id, user,  pass, login_url, note } = data;
-        var id = makeUuid();
 
+        var id = makeUuid();
+        var pass = encode(pass);
+
+        // init entity
         var account = new Account(id, cat_id, user, pass, login_url, note );
 
-        console.log('Build entity', account)
         
         await FireAccountRepo.store( getUserId(), account);
 

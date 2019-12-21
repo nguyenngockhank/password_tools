@@ -17,6 +17,7 @@
 <script>
 import { AccountData } from "@/services";
 import { copyToClipboard } from "../helper";
+import { decode } from '@/helpers';
 
 export default {
   data() {
@@ -28,8 +29,11 @@ export default {
     var data = await AccountData.getUserData();
 
     this.tableData = data.map(e => {
+
         return {
-            ...e, copied: false,
+            ...e, 
+            copied: false,
+            password: decode(e.password)
         }
     })
   },
