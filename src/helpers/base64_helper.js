@@ -1,3 +1,5 @@
+/** @module helpers */
+
 /**
  * to encode str to base64
  * @param {string} str raw string 

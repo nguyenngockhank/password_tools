@@ -1,3 +1,8 @@
+/** 
+ * Firebase Repository Module
+ * @module firebase/repositories 
+ * */
+
 import { database } from '../firebase'
 import Account from '@/entities/account';
 

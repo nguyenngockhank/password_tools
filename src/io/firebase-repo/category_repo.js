@@ -1,3 +1,5 @@
+/** @module firebase/repositories */
+
 import { database } from '../firebase'
 import Category from '@/entities/category'
 

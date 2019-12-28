@@ -1,3 +1,6 @@
+/** @module entities */
+
+/** Class representing a Category. */
 class Category {
 
     constructor(id, name, icon) {
